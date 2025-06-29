@@ -173,4 +173,4 @@ def presensi():
         return jsonify({'error': 'Face does not match. Please take another photo.'}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)

@@ -1,0 +1,9 @@
+flask
+gunicorn
+firebase-admin
+google-auth-oauthlib
+google-api-python-client
+opencv-python
+numpy
+face_recognition
+python-dotenv

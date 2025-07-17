@@ -168,7 +168,14 @@ def presensi():
     matches = face_recognition.compare_faces([stored_encodings[0]], uploaded_encodings[0])
     
     if matches[0]:
-        return jsonify({'message': 'Face matched successfully'}), 200
+        # Upload the new photo to Google Drive
+        filename = f"presensi_{karyawan_id}_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
+        photo_url = upload_to_drive(filestr, filename)
+        
+        return jsonify({
+            'message': 'Face matched successfully',
+            'photo': photo_url
+        }), 200
     else:
         return jsonify({'error': 'Face does not match. Please take another photo.'}), 400
 
